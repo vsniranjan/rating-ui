@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Star from "./Star";
 
 const Rating = ({
   question = "Rate your experience",
@@ -14,15 +15,15 @@ const Rating = ({
       <h2>{question}</h2>
       <div className='stars'>
         {stars.map((star) => (
-          <span
-            onClick={() => setRating(star)}
-            onMouseEnter={() => setHover(star)}
-            onMouseLeave={() => setHover(0)}
+          <Star
             key={star}
-            className={`star ${star <= (hover || rating) ? "active" : ""}`}
-          >
-            {"\u2605"}
-          </span>
+            star={star}
+            rating={rating}
+            hover={hover}
+            ratingClick={setRating}
+            mouseEnter={setHover}
+            mouseLeave={setHover}
+          />
         ))}
       </div>
       <p className='feedback'>{feedbackMessages[rating - 1]}</p>
