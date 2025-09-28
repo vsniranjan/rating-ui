@@ -2,16 +2,15 @@ const Rating = () => {
   return (
     <div className='rating-container'>
       <h2>Rate your experience</h2>
+      <div className='stars'>
+        {[1, 2, 3, 4, 5].map((star) => (
+          <span key={star} className='star'>
+            {"\u2605"}
+          </span>
+        ))}
+      </div>
     </div>
   );
-};
-
-const styles = {
-  conatiner: {
-    textAlign: "center",
-    fontFamily: "Arial",
-    padding: "20px",
-  },
 };
 
 export default Rating;
