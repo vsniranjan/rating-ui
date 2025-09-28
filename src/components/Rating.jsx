@@ -5,26 +5,25 @@ const Rating = () => {
   const [hover, setHover] = useState(0);
 
   const stars = Array.from({ length: 5 }, (_, i) => i + 1);
+  const feedbackMessages = ["Terrible", "Poor", "Fair", "Good", "Excellent"];
 
-  const clicked = (index) => console.log(index);
   return (
     <div className='rating-container'>
       <h2>Rate your experience</h2>
       <div className='stars'>
-        <p>{hover}</p>
-        <p>{rating}</p>
-        {stars.map((star, index) => (
+        {stars.map((star) => (
           <span
             onClick={() => setRating(star)}
             onMouseEnter={() => setHover(star)}
             onMouseLeave={() => setHover(0)}
             key={star}
-            className='star'
+            className={`star ${star <= (hover || rating) ? "active" : ""}`}
           >
             {"\u2605"}
           </span>
         ))}
       </div>
+      <p className='feedback'>{feedbackMessages[rating - 1]}</p>
     </div>
   );
 };
