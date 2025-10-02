@@ -1,10 +1,6 @@
 import Rating from "./components/Rating";
 const App = () => {
-  return (
-    <div className='container'>
-      <Rating />
-    </div>
-  );
+  return <Rating />;
 };
 
 export default App;

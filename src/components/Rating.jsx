@@ -10,19 +10,19 @@ const Rating = ({
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [submitted, setSubmitted] = useState(false);
-  const [showSubmitBtn, setshowSubmitBtn] = useState(true);
+  const [showSubmitBtn, setShowSubmitBtn] = useState(true);
 
   const stars = Array.from({ length: 5 }, (_, i) => i + 1);
 
   function handleSubmit() {
     if (rating > 0) {
       setSubmitted(true);
-      setshowSubmitBtn(false);
+      setShowSubmitBtn(false);
     }
   }
 
   function closeModal() {
-    setshowSubmitBtn(true);
+    setShowSubmitBtn(true);
     setSubmitted(false);
     setRating(0);
     setHover(0);
